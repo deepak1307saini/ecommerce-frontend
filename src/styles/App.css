@@ -1,0 +1,35 @@
+/* src/styles/App.css */
+
+/* Global Reset: Use border-box for easier layout management */
+html {
+  box-sizing: border-box;
+  font-size: 16px; /* Define a base font size */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Full height/width for the body and root container */
+body,
+#root {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  /* Use system font stack or let MUI's Theme handle typography */
+  font-family: Roboto, Arial, sans-serif; 
+}
+
+/* Optional: Smooth scrolling for better user experience */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Utility class for clearing floats if ever needed */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
