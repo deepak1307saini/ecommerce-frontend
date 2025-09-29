@@ -77,7 +77,7 @@ function NavBar({ user, logout }) {
           </IconButton>
           {user ? (
             <>
-              <Typography sx={{ ml: 2, mr: 1 }}>Welcome, {user.role}</Typography>
+              <Typography sx={{ ml: 2, mr: 1 }}>Welcome, {user.firstName || 'User'}</Typography>
               <Button color="inherit" onClick={logout}>
                 Logout
               </Button>
@@ -160,25 +160,21 @@ function NavBar({ user, logout }) {
             <PersonIcon sx={{ mr: 1 }} />
             Profile
           </MenuItem>
-          {user ? (
-            <>
-              <MenuItem disabled>
-                Welcome, {user.role}
-              </MenuItem>
-              <MenuItem onClick={logout}>
-                Logout
-              </MenuItem>
-            </>
-          ) : (
-            <>
-              <MenuItem component={Link} to="/login">
-                Login
-              </MenuItem>
-              <MenuItem component={Link} to="/register">
-                Register
-              </MenuItem>
-            </>
-          )}
+          {user ? [
+            <MenuItem key="welcome" disabled>
+              Welcome, {user.firstName || 'User'}
+            </MenuItem>,
+            <MenuItem key="logout" onClick={logout}>
+              Logout
+            </MenuItem>
+          ] : [
+            <MenuItem key="login" component={Link} to="/login">
+              Login
+            </MenuItem>,
+            <MenuItem key="register" component={Link} to="/register">
+              Register
+            </MenuItem>
+          ]}
         </Menu>
       </Toolbar>
     </AppBar>

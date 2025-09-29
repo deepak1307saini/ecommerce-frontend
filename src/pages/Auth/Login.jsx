@@ -18,10 +18,10 @@ function Login() {
     try {
       localStorage.removeItem('token');
       localStorage.removeItem('tenantName');
-      const { token, roles, tenant } = await execute(() => login(credentials));
+      const { token, roles, tenant, user } = await execute(() => login(credentials));
       const role = roles?.[0] || 'USER';
       const tenantName = tenant?.name || null;
-      authLogin(token, role, tenantName);
+      authLogin(token, role, tenantName, user);
     } catch (err) {}
   };
 

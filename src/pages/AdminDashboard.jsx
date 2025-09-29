@@ -89,8 +89,7 @@ function AdminDashboard() {
 
   const userColumns = [
     { key: 'username', label: 'Username' },
-    { key: 'email', label: 'Email' },
-    { key: 'role', label: 'Role' },
+    { key: 'email', label: 'Email' }
   ];
 
   const tenantActions = (row) => (
